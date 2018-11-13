@@ -38,7 +38,7 @@ class Game {
 		this.turnTimerIsRunning = false;
 		this.matched = 0;
 		this.turns = 0;
-		this.losingTurns = 6;
+		this.losingTurns = 5;
 	}
 
 	init() {

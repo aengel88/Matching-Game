@@ -8,12 +8,11 @@
 	bottom: 0;
 	background-color: rgba(0, 0, 0, 0.7);
 	z-index: 2;
-	visibility: hidden;
+	transform: scale(0);
 
 	&.lose-pop {
-		transition: all 0.6s ease;
+		transition: all 0.4s ease-in;
 		transform: scale(1);
-		visibility: visible;
 	}
 }
 
@@ -98,11 +97,10 @@
 	bottom: 0;
 	background-color: rgba(0, 0, 0, 0.7);
 	z-index: 2;
-	visibility: hidden;
+	transform: scale(0);
 
 	&.win-pop {
-		transition: all 0.6s ease;
+		transition: all 0.4s ease;
 		transform: scale(1);
-		visibility: visible;
 	}
 }
