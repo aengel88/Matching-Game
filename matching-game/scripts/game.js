@@ -31,13 +31,21 @@ class Game {
 		this.winningMatches = characters.length / 2;
 		this.elCharacters = $('.character');
 		this.elCharacterImg = $('.character-image');
+		this.openedCharacters = [];
+		this.matchedCharacter = $('.match');
+		this.num1 = null;
+		this.num2 = null;
+		this.turnTimerIsRunning = false;
+		this.matched = 0;
+		this.turns = 0;
+		this.losingTurns = 3;
 	}
 
 	init() {
 		this.characters = this._shuffle(this.characters);
 
 		const that = this;
-
+		//place array after randomoze jquery each loop
 		this.elCharacterImg.each(function(index) {
 			const img = $('<img>').attr({
 				src: that.characters[index].src,
@@ -45,11 +53,12 @@ class Game {
 			});
 			$(this)
 				.parent()
+				.prev()
 				.data('number', that.characters[index].number);
 			$(this).append(img);
 		});
 	}
-	//function to randomize function
+	//function to randomize characters
 	_shuffle(array) {
 		var currentIndex = array.length,
 			temporaryValue,
@@ -69,7 +78,84 @@ class Game {
 
 		return array;
 	}
-	//place array after randomoze jquery each loop
+
+	gameTurn(door) {
+		if (this.turnTimerIsRunning === true) {
+			return;
+		}
+
+		if (door.hasClass('doorOpen')) {
+			return;
+		}
+
+		this.openedCharacters.push(door);
+		door.addClass('doorOpen');
+
+		if (this.num1 === null) {
+			this.num1 = door.data('number');
+		} else {
+			this.num2 = door.data('number');
+		}
+
+		if (this.num2 === null) {
+			return;
+		}
+
+		if (this.num1 === this.num2) {
+			this.turnTimerIsRunning = true;
+			this.num1 = null;
+			this.num2 = null;
+			this.matched++;
+			$('.matches').text(this.matched);
+			setTimeout(() => {
+				this.openedCharacters.forEach(el => {
+					el.addClass('match');
+				});
+				this.openedCharacters = [];
+				this.turnTimerIsRunning = false;
+			}, 700);
+		} else {
+			this.num1 = null;
+			this.num2 = null;
+			this.turns++;
+			$('.attempts').text(this.turns);
+			setTimeout(() => {
+				this.openedCharacters.forEach(el => {
+					el.removeClass('doorOpen');
+				});
+				this.openedCharacters = [];
+				this.turnTimerIsRunning = false;
+			}, 700);
+		}
+		if (this.matched == this.winningMatches) {
+			this.endGame();
+			return;
+		}
+		if (this.turns == this.losingTurns) {
+			this.loseGame();
+			return;
+		}
+	}
+
+	winGame() {
+		alert('you rock');
+	}
+
+	loseGame() {
+		alert('you suck');
+	}
+
+	//only allow two doors open at a time
+
+	//check to see if cards are matching
+
+	//if matching add an open class
+
+	//add matches to score counter
+
+	//play match track
+
+	//close if not a match
 }
 
 let game;
@@ -85,5 +171,61 @@ $('#start-button').click(function() {
 });
 // door open function
 $('.door').click(function() {
-	$(this).toggleClass('doorOpen');
+	//$(this).toggleClass('doorOpen');
+	game.gameTurn($(this));
 });
+
+// const displayCharacter = function() {
+// 	this.classList.toggle('disabled');
+// };
+
+// //add opened cards to OpenedCards list and check if cards are match or not
+// function characterOpen() {
+// 	openedCharacters.push(this);
+// 	var len = openedCharacters.length;
+// 	if (len === 2) {
+// 		moveCounter();
+// 		if (openedCharacters[0].type === openedCharacters[1].type) {
+// 			matched();
+// 		} else {
+// 			unmatched();
+// 		}
+// 	}
+// }
+
+// // when cards match
+// function matched() {
+// 	openedCharacters[0].classList.add('match', 'disabled');
+// 	openedCharacters[1].classList.add('match', 'disabled');
+// 	openedCharacters = [];
+// }
+
+// // when cards don't match
+// function unmatched() {
+// 	openedCharacters[0].classList.add('unmatched');
+// 	openedCharacters[1].classList.add('unmatched');
+// 	disable();
+// 	setTimeout(function() {
+// 		openedCharacters[0].classList.remove('.doorOpen', 'unmatched');
+// 		openedCharacters[1].classList.remove('.doorOpen', 'unmatched');
+// 		enable();
+// 		openedCharacters = [];
+// 	}, 1100);
+// }
+
+// //  disable cards temporarily
+// function disable() {
+// 	Array.prototype.filter.call(characters, function() {
+// 		characters.classList.add('disabled');
+// 	});
+// }
+
+// //  enable cards and disable matched cards
+// function enable() {
+// 	Array.prototype.filter.call(characters, function() {
+// 		characters.classList.remove('disabled');
+// 		for (var i = 0; i < matchedCharacter.length; i++) {
+// 			matchedCharacter[i].classList.add('disabled');
+// 		}
+// 	});
+// }
