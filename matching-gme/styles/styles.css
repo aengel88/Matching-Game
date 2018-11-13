@@ -1,0 +1,117 @@
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  background-image: url(/images/dunder-mifflin.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  font-family: Helvetica, Arial, sans-serif; }
+
+.top-bar {
+  padding-bottom: 50px; }
+  .top-bar h1 {
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    font-size: 2.8em;
+    padding: 10px; }
+
+.score {
+  font-family: Helvetica, Arial, sans-serif;
+  padding: 5px 10px;
+  font-weight: bold;
+  font-size: 1.3em; }
+
+html {
+  box-sizing: border-box; }
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit; }
+
+img {
+  max-width: 100%;
+  height: auto; }
+
+body {
+  margin: 0; }
+
+h1 {
+  margin: 0;
+  padding: 0; }
+
+.board {
+  width: 1150px;
+  height: 640px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  background-color: rgba(245, 245, 245, 0.582);
+  border-radius: 10px; }
+
+#item {
+  position: relative; }
+
+.door,
+.character {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 280px;
+  align-content: center;
+  margin: auto; }
+
+.door {
+  z-index: 1;
+  transform-origin: left;
+  transition: all 0.5s ease-in-out; }
+
+.doorOpen {
+  transform: perspective(3000px) translateZ(0px) translateX(-50%) translateY(-50%) rotateY(-85deg); }
+
+.start-wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 2; }
+  .start-wrapper.close {
+    transition: all 0.6s ease;
+    transform: scale(0);
+    visibility: hidden; }
+
+.start-game {
+  width: 900px;
+  height: 600px;
+  margin: 150px auto;
+  align-content: center;
+  background-color: whitesmoke;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  border-radius: 5px; }
+  .start-game img {
+    width: 400px;
+    height: auto;
+    border-radius: 15px;
+    align-content: center; }
+  .start-game .start h1 {
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    font-size: 3em;
+    padding: 10px; }
+  .start-game .start p {
+    font-family: Helvetica, Arial, sans-serif;
+    padding: 5px 10px;
+    font-weight: bold;
+    font-size: 2em; }
+  .start-game .start .start-button {
+    padding: 20px;
+    margin: 50px 150px; }
+
+/*# sourceMappingURL=styles.css.map */
