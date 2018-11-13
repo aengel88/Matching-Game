@@ -38,7 +38,7 @@ class Game {
 		this.turnTimerIsRunning = false;
 		this.matched = 0;
 		this.turns = 0;
-		this.losingTurns = 3;
+		this.losingTurns = 6;
 	}
 
 	init() {
@@ -141,6 +141,7 @@ class Game {
 
 	loseGame() {
 		$('.lose-wrapper').toggleClass('lose-pop');
+		$('video')[0].play();
 	}
 
 	//only allow two doors open at a time
@@ -172,6 +173,7 @@ $('#lose-button').click(function() {
 	$(this)
 		.parents('.lose-wrapper')
 		.toggleClass('lose-pop');
+	window.location.reload();
 	game = new Game(characters);
 	game.init();
 });
@@ -180,6 +182,7 @@ $('#win-button').click(function() {
 	$(this)
 		.parents('.win-wrapper')
 		.toggleClass('win-pop');
+	window.location.reload();
 	game = new Game(characters);
 	game.init();
 });
