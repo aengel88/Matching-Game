@@ -128,21 +128,19 @@ class Game {
 			}, 700);
 		}
 		if (this.matched == this.winningMatches) {
-			this.endGame();
-			return;
+			this.winGame();
 		}
 		if (this.turns == this.losingTurns) {
 			this.loseGame();
-			return;
 		}
 	}
 
 	winGame() {
-		alert('you rock');
+		$('.win-wrapper').toggleClass('win-pop');
 	}
 
 	loseGame() {
-		alert('you suck');
+		$('.lose-wrapper').toggleClass('lose-pop');
 	}
 
 	//only allow two doors open at a time
@@ -166,6 +164,22 @@ $('#start-button').click(function() {
 	$(this)
 		.parents('.start-wrapper')
 		.toggleClass('close');
+	game = new Game(characters);
+	game.init();
+});
+
+$('#lose-button').click(function() {
+	$(this)
+		.parents('.lose-wrapper')
+		.toggleClass('lose-pop');
+	game = new Game(characters);
+	game.init();
+});
+
+$('#win-button').click(function() {
+	$(this)
+		.parents('.win-wrapper')
+		.toggleClass('win-pop');
 	game = new Game(characters);
 	game.init();
 });
