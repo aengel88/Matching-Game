@@ -1,0 +1,13 @@
+.footer {
+	position: absolute;
+	width: 100%;
+	height: auto;
+	bottom: 0px;
+	left: 0px;
+	background-color: rgba(245, 245, 245, 0.582);
+	font-family: $font-heading;
+
+	p {
+		margin: 8px;
+	}
+}

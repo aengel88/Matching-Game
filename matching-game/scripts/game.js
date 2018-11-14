@@ -21,6 +21,12 @@ characters[9] = new Character('images/stanley.jpg', 'Stanley', 5);
 characters[10] = new Character('images/creed.jpg', 'Creed', 6);
 characters[11] = new Character('images/creed.jpg', 'Creed', 6);
 
+const awesome = $('.awesome');
+const bad = $('.bad');
+const hero = $('.hero');
+const beach = $('.beach');
+const waste = $('.waste');
+
 //create master game class
 
 class Game {
@@ -39,8 +45,6 @@ class Game {
 		this.matched = 0;
 		this.turns = 0;
 		this.losingTurns = 5;
-		this.waste = new Audio('/audio/waste.mp3');
-		this.awesome = new Audio('/audio/Awesome.mp3');
 	}
 
 	init() {
@@ -59,9 +63,6 @@ class Game {
 				.data('number', that.characters[index].number);
 			$(this).append(img);
 		});
-
-		// lowLag.load(['/audio/Awesome.mp3', '/audio/Awesome.ogg'], 'awesome');
-		// lowLag.load(['/audio/waste.mp3', '/audio/waste.ogg'], 'waste');
 	}
 	//function to randomize characters
 	_shuffle(array) {
@@ -111,7 +112,7 @@ class Game {
 			this.num1 = null;
 			this.num2 = null;
 			this.matched++;
-			this.awesome.play();
+			awesome[0].play();
 			$('.matches').text(this.matched);
 			setTimeout(() => {
 				this.openedCharacters.forEach(el => {
@@ -119,13 +120,12 @@ class Game {
 				});
 				this.openedCharacters = [];
 				this.turnTimerIsRunning = false;
-				// lowLag.play('awesome');
 			}, 700);
 		} else {
 			this.num1 = null;
 			this.num2 = null;
 			this.turns++;
-			this.waste.play();
+			waste[0].play();
 			$('.attempts').text(this.turns);
 			setTimeout(() => {
 				this.openedCharacters.forEach(el => {
@@ -133,7 +133,6 @@ class Game {
 				});
 				this.openedCharacters = [];
 				this.turnTimerIsRunning = false;
-				// +lowLag.play('waste');
 			}, 700);
 		}
 		if (this.matched == this.winningMatches)
@@ -148,10 +147,12 @@ class Game {
 
 	winGame() {
 		$('.win-wrapper').toggleClass('win-pop');
+		hero[0].play();
 	}
 
 	loseGame() {
 		$('.lose-wrapper').toggleClass('lose-pop');
+		bad[0].play();
 		$('video')[0].play();
 	}
 
@@ -176,6 +177,7 @@ $('#start-button').click(function() {
 	$(this)
 		.parents('.start-wrapper')
 		.toggleClass('close');
+	beach[0].play();
 	game = new Game(characters);
 	game.init();
 });
@@ -202,58 +204,3 @@ $('.door').click(function() {
 	//$(this).toggleClass('doorOpen');
 	game.gameTurn($(this));
 });
-
-// const displayCharacter = function() {
-// 	this.classList.toggle('disabled');
-// };
-
-// //add opened cards to OpenedCards list and check if cards are match or not
-// function characterOpen() {
-// 	openedCharacters.push(this);
-// 	var len = openedCharacters.length;
-// 	if (len === 2) {
-// 		moveCounter();
-// 		if (openedCharacters[0].type === openedCharacters[1].type) {
-// 			matched();
-// 		} else {
-// 			unmatched();
-// 		}
-// 	}
-// }
-
-// // when cards match
-// function matched() {
-// 	openedCharacters[0].classList.add('match', 'disabled');
-// 	openedCharacters[1].classList.add('match', 'disabled');
-// 	openedCharacters = [];
-// }
-
-// // when cards don't match
-// function unmatched() {
-// 	openedCharacters[0].classList.add('unmatched');
-// 	openedCharacters[1].classList.add('unmatched');
-// 	disable();
-// 	setTimeout(function() {
-// 		openedCharacters[0].classList.remove('.doorOpen', 'unmatched');
-// 		openedCharacters[1].classList.remove('.doorOpen', 'unmatched');
-// 		enable();
-// 		openedCharacters = [];
-// 	}, 1100);
-// }
-
-// //  disable cards temporarily
-// function disable() {
-// 	Array.prototype.filter.call(characters, function() {
-// 		characters.classList.add('disabled');
-// 	});
-// }
-
-// //  enable cards and disable matched cards
-// function enable() {
-// 	Array.prototype.filter.call(characters, function() {
-// 		characters.classList.remove('disabled');
-// 		for (var i = 0; i < matchedCharacter.length; i++) {
-// 			matchedCharacter[i].classList.add('disabled');
-// 		}
-// 	});
-// }
