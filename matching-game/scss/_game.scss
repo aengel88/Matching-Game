@@ -1,4 +1,4 @@
-.board .character-image.match {
+.character-image.match {
 	cursor: default;
 	font-size: 33px;
 	animation-name: rubberBand;
@@ -7,14 +7,14 @@
 	animation-duration: 0.75s;
 }
 
-.board .character-image.unmatched {
+.character-image.unmatched {
 	animation-name: pulse;
 	-webkit-backface-visibility: visible !important;
 	backface-visibility: visible !important;
 	animation-duration: 0.75s;
 }
 
-.board .character.disabled {
+.character.disabled {
 	pointer-events: none;
 	opacity: 0.9;
 }

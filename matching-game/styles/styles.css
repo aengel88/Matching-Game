@@ -87,7 +87,7 @@ h1 {
     visibility: hidden; }
 
 .start-game {
-  width: 900px;
+  width: 1000px;
   height: 600px;
   margin: 150px auto;
   align-content: center;
@@ -97,24 +97,53 @@ h1 {
   grid-template-rows: auto;
   border-radius: 5px; }
   .start-game img {
-    width: 400px;
-    height: auto;
+    width: 450px;
+    height: 493;
     border-radius: 15px;
     align-content: center; }
-  .start-game .start h1 {
-    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-    font-size: 3em;
-    padding: 10px; }
-  .start-game .start p {
-    font-family: Helvetica, Arial, sans-serif;
-    padding: 5px 10px;
-    font-weight: bold;
-    font-size: 2em; }
-  .start-game .start .start-button {
-    padding: 20px;
-    margin: 50px 150px; }
+  .start-game .start {
+    width: 500px;
+    padding: 0px 0; }
+    .start-game .start h1 {
+      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      font-size: 3em;
+      padding: 20px 50px; }
+    .start-game .start p {
+      font-family: Helvetica, Arial, sans-serif;
+      padding: 10px 50px;
+      font-weight: bold;
+      font-size: 2em; }
+    .start-game .start .start-button {
+      padding: 35px 100px;
+      margin: 40px 50px;
+      border: none;
+      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      font-size: 2.7em;
+      border-radius: 8px;
+      background-color: #414B7E;
+      box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+      -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75); }
+      .start-game .start .start-button:hover {
+        background-color: #DC9895;
+        transform: scale(1.03);
+        box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+        -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75); }
+      .start-game .start .start-button:active {
+        background-color: #DC9895;
+        transform: scale(1.03);
+        box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+        -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75); }
+      .start-game .start .start-button:focus {
+        background-color: #DC9895;
+        transform: scale(1.03);
+        box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+        -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75); }
 
-.board .character-image.match {
+.character-image.match {
   cursor: default;
   font-size: 33px;
   animation-name: rubberBand;
@@ -122,13 +151,13 @@ h1 {
   backface-visibility: visible !important;
   animation-duration: 0.75s; }
 
-.board .character-image.unmatched {
+.character-image.unmatched {
   animation-name: pulse;
   -webkit-backface-visibility: visible !important;
   backface-visibility: visible !important;
   animation-duration: 0.75s; }
 
-.board .character.disabled {
+.character.disabled {
   pointer-events: none;
   opacity: 0.9; }
 
@@ -170,34 +199,62 @@ h1 {
     transform: scale(1); }
 
 .lose-game {
-  width: 900px;
+  width: 1100px;
   height: 600px;
   margin: 150px auto;
   align-content: center;
   background-color: whitesmoke;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: .8fr 1.2fr;
   grid-template-rows: auto;
   border-radius: 5px; }
   .lose-game video {
-    border-radius: 15px;
     align-content: center;
-    padding: 20px; }
-  .lose-game .lose h1 {
-    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-    font-size: 3em;
-    padding: 10px; }
-  .lose-game .lose p {
-    font-family: Helvetica, Arial, sans-serif;
-    padding: 5px 10px;
-    font-weight: bold;
-    font-size: 2em; }
-  .lose-game .lose .lose-button {
-    padding: 20px;
-    margin: 50px 150px; }
+    padding: 100px 20px; }
+  .lose-game .lose {
+    width: 450px;
+    padding: 0px 0; }
+    .lose-game .lose h1 {
+      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      font-size: 3em;
+      padding: 20px 50px; }
+    .lose-game .lose p {
+      font-family: Helvetica, Arial, sans-serif;
+      padding: 10px 50px;
+      font-weight: bold;
+      font-size: 2em; }
+    .lose-game .lose .lose-button {
+      padding: 35px 90px;
+      margin: 40px 50px;
+      border: none;
+      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      font-size: 2.7em;
+      border-radius: 8px;
+      background-color: #414B7E;
+      box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+      -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75); }
+      .lose-game .lose .lose-button:hover {
+        background-color: #DC9895;
+        transform: scale(1.03);
+        box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+        -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75); }
+      .lose-game .lose .lose-button:active {
+        background-color: #DC9895;
+        transform: scale(1.03);
+        box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+        -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75); }
+      .lose-game .lose .lose-button:focus {
+        background-color: #DC9895;
+        transform: scale(1.03);
+        box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+        -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75); }
 
 .win-game {
-  width: 900px;
+  width: 1000px;
   height: 600px;
   margin: 150px auto;
   align-content: center;
@@ -207,22 +264,52 @@ h1 {
   grid-template-rows: auto;
   border-radius: 5px; }
   .win-game img {
-    width: 400px;
+    width: 450px;
     height: auto;
     border-radius: 15px;
-    align-content: center; }
-  .win-game .win h1 {
-    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-    font-size: 3em;
-    padding: 10px; }
-  .win-game .win p {
-    font-family: Helvetica, Arial, sans-serif;
-    padding: 5px 10px;
-    font-weight: bold;
-    font-size: 2em; }
-  .win-game .win .win-button {
-    padding: 20px;
-    margin: 50px 150px; }
+    align-content: center;
+    padding-top: 60px; }
+  .win-game .win {
+    width: 500px;
+    padding: 0px 0; }
+    .win-game .win h1 {
+      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      font-size: 3em;
+      padding: 20px 100px; }
+    .win-game .win p {
+      font-family: Helvetica, Arial, sans-serif;
+      padding: 10px 50px;
+      font-weight: bold;
+      font-size: 2em; }
+    .win-game .win .win-button {
+      padding: 35px 80px;
+      margin: 40px 50px;
+      border: none;
+      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      font-size: 2.7em;
+      border-radius: 8px;
+      background-color: #414B7E;
+      box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+      -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75); }
+      .win-game .win .win-button:hover {
+        background-color: #DC9895;
+        transform: scale(1.03);
+        box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+        -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75); }
+      .win-game .win .win-button:active {
+        background-color: #DC9895;
+        transform: scale(1.03);
+        box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+        -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75); }
+      .win-game .win .win-button:focus {
+        background-color: #DC9895;
+        transform: scale(1.03);
+        box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+        -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75); }
 
 .win-wrapper {
   position: fixed;

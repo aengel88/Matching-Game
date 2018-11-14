@@ -57,6 +57,10 @@ class Game {
 				.data('number', that.characters[index].number);
 			$(this).append(img);
 		});
+		
+		lowLag.load(['/audio/Awesome.mp3','/audio/Awesome.ogg'],'awesome');
+		lowLag.load(['/audio/waste.mp3','/audio/waste.ogg'],'waste');
+
 	}
 	//function to randomize characters
 	_shuffle(array) {
@@ -113,19 +117,26 @@ class Game {
 				});
 				this.openedCharacters = [];
 				this.turnTimerIsRunning = false;
+				lowLag.play('awesome');
 			}, 700);
+			
+
 		} else {
 			this.num1 = null;
 			this.num2 = null;
 			this.turns++;
+
 			$('.attempts').text(this.turns);
 			setTimeout(() => {
 				this.openedCharacters.forEach(el => {
 					el.removeClass('doorOpen');
 				});
 				this.openedCharacters = [];
-				this.turnTimerIsRunning = false;
+				this.turnTimerIsRunning = false;+			
+				lowLag.play('waste');
+
 			}, 700);
+
 		}
 		if (this.matched == this.winningMatches) {
 			this.winGame();
@@ -142,6 +153,7 @@ class Game {
 	loseGame() {
 		$('.lose-wrapper').toggleClass('lose-pop');
 		$('video')[0].play();
+
 	}
 
 	//only allow two doors open at a time

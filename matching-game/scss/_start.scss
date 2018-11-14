@@ -17,7 +17,7 @@
 }
 
 .start-game {
-	width: 900px;
+	width: 1000px;
 	height: 600px;
 	margin: 150px auto;
 	align-content: center;
@@ -28,26 +28,58 @@
 	border-radius: 5px;
 
 	img {
-		width: 400px;
-		height: auto;
+		width: 450px;
+		height: 493;
 		border-radius: 15px;
 		align-content: center;
 	}
 	.start {
+		width: 500px;
+		padding: 0px 0;
 		h1 {
 			font-family: $font-heading;
 			font-size: 3em;
-			padding: 10px;
+			padding: 20px 50px;
+			
 		}
 		p {
 			font-family: $font-body;
-			padding: 5px 10px;
+			padding: 10px 50px;
 			font-weight: bold;
 			font-size: 2em;
 		}
 		.start-button {
-			padding: 20px;
-			margin: 50px 150px;
+			padding: 35px 100px;
+			margin: 40px 50px;
+			border: none;
+			font-family: $font-heading;
+			font-size: 2.7em;
+			border-radius: 8px;
+			background-color: #414B7E;
+			box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+			-webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+			-moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+			&:hover {
+				background-color: #DC9895;
+				transform: scale(1.03);
+				box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+				-webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+				-moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);			  
+			}
+			&:active {
+				background-color: #DC9895;
+				transform: scale(1.03);
+				box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+				-webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+				-moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);	
+			}
+			&:focus {
+				background-color: #DC9895;
+				transform: scale(1.03);
+				box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+				-webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+				-moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);	
+			}
 		}
 	}
 }
