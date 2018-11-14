@@ -138,12 +138,12 @@ class Game {
 			}, 700);
 
 		}
-		if (this.matched == this.winningMatches) {
+		if (this.matched == this.winningMatches) setTimeout(() => {
 			this.winGame();
-		}
-		if (this.turns == this.losingTurns) {
+		}, 700);
+		if (this.turns == this.losingTurns) setTimeout(() => {
 			this.loseGame();
-		}
+		}, 700);
 	}
 
 	winGame() {
